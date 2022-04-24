@@ -41,16 +41,28 @@ public class Cars {
     private int getMaxPositionAndWinner(int maxPosition, StringBuilder winnerName, Car car) {
         int carPosition = car.getPosition();
 
-        if (maxPosition == carPosition) {
+        if (isSamePosition(maxPosition, carPosition)) {
             winnerName.append(" " + car.getName());
         }
 
-        if (maxPosition < carPosition) {
-            maxPosition = carPosition;
-            winnerName.setLength(0);
-            winnerName.append(car.getName());
+        if (isNewMaxPosition(maxPosition, carPosition)) {
+            maxPosition = getNewMaxPosition(winnerName, car, carPosition);
         }
         return maxPosition;
+    }
+
+    private boolean isSamePosition(int maxPosition, int carPosition) {
+        return maxPosition == carPosition;
+    }
+
+    private int getNewMaxPosition(StringBuilder winnerName, Car car, int carPosition) {
+        winnerName.setLength(0);
+        winnerName.append(car.getName());
+        return carPosition;
+    }
+
+    private boolean isNewMaxPosition(int maxPosition, int carPosition) {
+        return maxPosition < carPosition;
     }
 
 }
