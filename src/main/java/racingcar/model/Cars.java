@@ -27,4 +27,30 @@ public class Cars {
         }
     }
 
+    public void getWinner() {
+        int maxPosition = 0;
+        StringBuilder winnerName = new StringBuilder();
+
+        for (Car car : carList) {
+            maxPosition = getMaxPositionAndWinner(maxPosition, winnerName, car);
+        }
+
+        System.out.println("최종 우승자: " + winnerName);
+    }
+
+    private int getMaxPositionAndWinner(int maxPosition, StringBuilder winnerName, Car car) {
+        int carPosition = car.getPosition();
+
+        if (maxPosition == carPosition) {
+            winnerName.append(" " + car.getName());
+        }
+
+        if (maxPosition < carPosition) {
+            maxPosition = carPosition;
+            winnerName.setLength(0);
+            winnerName.append(car.getName());
+        }
+        return maxPosition;
+    }
+
 }

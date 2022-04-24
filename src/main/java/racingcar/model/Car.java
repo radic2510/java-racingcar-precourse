@@ -28,10 +28,21 @@ public class Car {
         if (isMove(randomNumber)) {
             position.goForward();
         }
+
+        displayCarPosition();
     }
 
     private boolean isMove(int randomNumber) {
         return randomNumber >= MIN_NUMBER_FOR_MOVE;
+    }
+
+    private void displayCarPosition() {
+        StringBuilder positionDisplay = new StringBuilder();
+        for (int i = 0; i < getPosition(); i++) {
+            positionDisplay.append("- ");
+        }
+
+        System.out.println(getName() + " : " + positionDisplay);
     }
 
 
