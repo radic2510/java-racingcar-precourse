@@ -30,7 +30,7 @@ public class ConsoleHandler {
 
     public void validateNumberInput(String input) {
         if (!isContainOnlyNumber(input)) {
-            throw new IllegalArgumentException("[ERROR] 숫자만 입력 가능합니다.");
+            throw new IllegalArgumentException("[ERROR] 시도 횟수는 숫자여야 한다.");
         }
     }
 
