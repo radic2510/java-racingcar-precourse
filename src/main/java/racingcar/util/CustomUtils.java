@@ -1,6 +1,8 @@
 package racingcar.util;
 
-public class CustomStringUtils {
+import camp.nextstep.edu.missionutils.Randoms;
+
+public class CustomUtils {
 
     public static String[] stringSplitByComma(String input) {
         String[] strArr = input.split(",");
@@ -10,5 +12,9 @@ public class CustomStringUtils {
         }
 
         return strArr;
+    }
+
+    public static int getRandomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
     }
 }

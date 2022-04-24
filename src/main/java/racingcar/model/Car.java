@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
+import static racingcar.util.CustomUtils.getRandomNumber;
 
 public class Car {
 
@@ -34,7 +34,5 @@ public class Car {
         return randomNumber >= MIN_NUMBER_FOR_MOVE;
     }
 
-    private int getRandomNumber() {
-        return Randoms.pickNumberInRange(0, 9);
-    }
+
 }
