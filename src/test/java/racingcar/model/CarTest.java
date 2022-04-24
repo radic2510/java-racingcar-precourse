@@ -16,7 +16,7 @@ class CarTest {
 
         Car singleCar = new Car(input);
 
-        assertThat(singleCar.getCarName()).isEqualTo(input);
+        assertThat(singleCar.getName()).isEqualTo(input);
     }
 
     @DisplayName("2대 이상의 자동차 생성 테스트")
@@ -29,7 +29,7 @@ class CarTest {
         for (String carName : carNames) {
             Car car = new Car(carName);
 
-            assertThat(car.getCarName()).isEqualTo(carName);
+            assertThat(car.getName()).isEqualTo(carName);
         }
     }
 
