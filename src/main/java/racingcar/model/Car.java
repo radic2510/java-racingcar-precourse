@@ -1,6 +1,10 @@
 package racingcar.model;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Car {
+
+    private final int MIN_NUMBER_FOR_MOVE = 4;
 
     private final CarName name;
     private final CarPosition position;
@@ -11,14 +15,26 @@ public class Car {
     }
 
     public String getName() {
-        return this.name.getCarName();
+        return name.getCarName();
     }
 
     public int getPosition() {
-        return this.position.getPosition();
+        return position.getPosition();
     }
 
     public void runRound() {
-        this.position.runRound();
+        int randomNumber = getRandomNumber();
+
+        if (isMove(randomNumber)) {
+            position.goForward();
+        }
+    }
+
+    private boolean isMove(int randomNumber) {
+        return randomNumber >= MIN_NUMBER_FOR_MOVE;
+    }
+
+    private int getRandomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
     }
 }
